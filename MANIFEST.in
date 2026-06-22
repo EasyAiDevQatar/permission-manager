@@ -1,0 +1,3 @@
+include README.md
+include license.txt
+recursive-include permission_manager *.css *.js *.json *.html *.py *.txt

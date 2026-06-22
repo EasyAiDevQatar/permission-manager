@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "creation": "2026-06-22 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["intro", "role_details_section", "source_role", "column_break_role", "new_role_name", "options_section", "copy_access_rules", "summary", "duplicate_role"],
+ "fields": [
+  {"fieldname": "intro", "fieldtype": "HTML", "options": "<div class=\"permission-manager-intro\"><div class=\"permission-manager-intro__icon\">&#128737;</div><div><h3>Duplicate a role safely</h3><p>Create a new role with the same effective permissions as an existing role.</p></div></div>"},
+  {"fieldname": "role_details_section", "fieldtype": "Section Break", "label": "Role Details"},
+  {"fieldname": "source_role", "fieldtype": "Select", "label": "Source Role", "reqd": 1},
+  {"fieldname": "column_break_role", "fieldtype": "Column Break"},
+  {"description": "Enter a unique name for the duplicated role.", "fieldname": "new_role_name", "fieldtype": "Data", "label": "New Role Name", "reqd": 1},
+  {"fieldname": "options_section", "fieldtype": "Section Break", "label": "Access Options"},
+  {"default": "1", "description": "Also copy explicit access to Pages, Reports, and Workspaces.", "fieldname": "copy_access_rules", "fieldtype": "Check", "label": "Copy Page, Report, and Workspace Access"},
+  {"fieldname": "summary", "fieldtype": "HTML"},
+  {"fieldname": "duplicate_role", "fieldtype": "Button", "label": "Duplicate Role"}
+ ],
+ "icon": "octicon octicon-shield",
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-06-22 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Permission Manager",
+ "name": "Permission Manager Tool",
+ "owner": "Administrator",
+ "permissions": [{"read": 1, "role": "System Manager", "write": 1}],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
