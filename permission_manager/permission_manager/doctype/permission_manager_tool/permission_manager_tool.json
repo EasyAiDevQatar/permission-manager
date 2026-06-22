@@ -3,17 +3,139 @@
  "creation": "2026-06-22 09:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
- "field_order": ["intro", "role_details_section", "source_role", "column_break_role", "new_role_name", "options_section", "copy_access_rules", "summary", "duplicate_role"],
+ "field_order": [
+  "intro",
+  "role_details_section",
+  "source_role",
+  "column_break_role",
+  "new_role_name",
+  "options_section",
+  "copy_access_rules",
+  "summary",
+  "duplicate_role",
+  "bulk_permissions_section",
+  "target_role",
+  "selected_doctypes",
+  "bulk_rights_section",
+  "allow_select",
+  "allow_read",
+  "allow_write",
+  "allow_create",
+  "allow_delete",
+  "bulk_rights_column",
+  "allow_submit",
+  "allow_cancel",
+  "allow_amend",
+  "allow_report",
+  "allow_export",
+  "bulk_more_column",
+  "allow_import",
+  "allow_share",
+  "allow_print",
+  "allow_email",
+  "replace_existing",
+  "apply_bulk_permissions"
+ ],
  "fields": [
-  {"fieldname": "intro", "fieldtype": "HTML", "options": "<div class=\"permission-manager-intro\"><div class=\"permission-manager-intro__icon\">&#128737;</div><div><h3>Duplicate a role safely</h3><p>Create a new role with the same effective permissions as an existing role.</p></div></div>"},
-  {"fieldname": "role_details_section", "fieldtype": "Section Break", "label": "Role Details"},
-  {"fieldname": "source_role", "fieldtype": "Select", "label": "Source Role", "reqd": 1},
-  {"fieldname": "column_break_role", "fieldtype": "Column Break"},
-  {"description": "Enter a unique name for the duplicated role.", "fieldname": "new_role_name", "fieldtype": "Data", "label": "New Role Name", "reqd": 1},
-  {"fieldname": "options_section", "fieldtype": "Section Break", "label": "Access Options"},
-  {"default": "1", "description": "Also copy explicit access to Pages, Reports, and Workspaces.", "fieldname": "copy_access_rules", "fieldtype": "Check", "label": "Copy Page, Report, and Workspace Access"},
-  {"fieldname": "summary", "fieldtype": "HTML"},
-  {"fieldname": "duplicate_role", "fieldtype": "Button", "label": "Duplicate Role"}
+  {
+   "fieldname": "intro",
+   "fieldtype": "HTML",
+   "options": "<div class=\"permission-manager-intro\"><div class=\"permission-manager-intro__icon\">&#128737;</div><div><h3>Duplicate a role safely</h3><p>Create a new role with the same effective permissions as an existing role.</p></div></div>"
+  },
+  {
+   "fieldname": "role_details_section",
+   "fieldtype": "Section Break",
+   "label": "Role Details"
+  },
+  {
+   "fieldname": "source_role",
+   "fieldtype": "Select",
+	   "label": "Source Role",
+	   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_role",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Enter a unique name for the duplicated role.",
+   "fieldname": "new_role_name",
+   "fieldtype": "Data",
+   "label": "New Role Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "options_section",
+   "fieldtype": "Section Break",
+   "label": "Access Options"
+  },
+  {
+   "default": "1",
+   "description": "Also copy explicit access to Pages, Reports, and Workspaces.",
+   "fieldname": "copy_access_rules",
+   "fieldtype": "Check",
+   "label": "Copy Page, Report, and Workspace Access"
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "HTML"
+  },
+  {
+   "fieldname": "duplicate_role",
+   "fieldtype": "Button",
+   "label": "Duplicate Role"
+  },
+  {
+   "fieldname": "bulk_permissions_section",
+   "fieldtype": "Section Break",
+   "label": "Bulk Permission Assignment"
+  },
+  {
+   "fieldname": "target_role",
+   "fieldtype": "Select",
+   "label": "Target Role",
+   "reqd": 1
+  },
+  {
+   "description": "Select every DocType that should receive the chosen permissions.",
+   "fieldname": "selected_doctypes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Document Types",
+   "options": "Permission Manager DocType"
+  },
+  {
+   "fieldname": "bulk_rights_section",
+   "fieldtype": "Section Break",
+   "label": "Select Multiple Permissions"
+  },
+  {"fieldname": "allow_select", "fieldtype": "Check", "label": "Select"},
+  {"default": "1", "fieldname": "allow_read", "fieldtype": "Check", "label": "Read"},
+  {"fieldname": "allow_write", "fieldtype": "Check", "label": "Write"},
+  {"fieldname": "allow_create", "fieldtype": "Check", "label": "Create"},
+  {"fieldname": "allow_delete", "fieldtype": "Check", "label": "Delete"},
+  {"fieldname": "bulk_rights_column", "fieldtype": "Column Break"},
+  {"fieldname": "allow_submit", "fieldtype": "Check", "label": "Submit"},
+  {"fieldname": "allow_cancel", "fieldtype": "Check", "label": "Cancel"},
+  {"fieldname": "allow_amend", "fieldtype": "Check", "label": "Amend"},
+  {"fieldname": "allow_report", "fieldtype": "Check", "label": "Report"},
+  {"fieldname": "allow_export", "fieldtype": "Check", "label": "Export"},
+  {"fieldname": "bulk_more_column", "fieldtype": "Column Break"},
+  {"fieldname": "allow_import", "fieldtype": "Check", "label": "Import"},
+  {"fieldname": "allow_share", "fieldtype": "Check", "label": "Share"},
+  {"fieldname": "allow_print", "fieldtype": "Check", "label": "Print"},
+  {"fieldname": "allow_email", "fieldtype": "Check", "label": "Email"},
+  {
+   "default": "0",
+   "description": "When enabled, rights not selected above will be removed from the level 0 permission row.",
+   "fieldname": "replace_existing",
+   "fieldtype": "Check",
+   "label": "Replace Existing Permissions"
+  },
+  {
+   "fieldname": "apply_bulk_permissions",
+   "fieldtype": "Button",
+   "label": "Apply Permissions to Selected DocTypes"
+  }
  ],
  "icon": "octicon octicon-shield",
  "issingle": 1,
@@ -23,7 +145,13 @@
  "module": "Permission Manager",
  "name": "Permission Manager Tool",
  "owner": "Administrator",
- "permissions": [{"read": 1, "role": "System Manager", "write": 1}],
+ "permissions": [
+  {
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
