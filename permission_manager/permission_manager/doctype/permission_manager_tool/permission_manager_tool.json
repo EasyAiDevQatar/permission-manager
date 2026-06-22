@@ -101,7 +101,8 @@
    "fieldname": "selected_doctypes",
    "fieldtype": "Table MultiSelect",
    "label": "Document Types",
-   "options": "Permission Manager DocType"
+   "options": "Permission Manager DocType",
+   "placeholder": "Search and add document types"
   },
   {
    "fieldname": "bulk_rights_section",

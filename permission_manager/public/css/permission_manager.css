@@ -41,3 +41,47 @@
 	.permission-manager-summary { grid-template-columns: 1fr; }
 	.permission-manager-intro { align-items: flex-start; }
 }
+
+[data-fieldname="selected_doctypes"].frappe-control.input-max-width,
+[data-fieldname="selected_doctypes"] .form-group {
+	width: 100% !important;
+	max-width: none !important;
+}
+
+[data-fieldname="selected_doctypes"] .table-multiselect.form-control {
+	display: flex;
+	min-height: 46px;
+	height: auto;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 8px !important;
+	border: 1px solid #dedfe2 !important;
+	border-radius: 10px !important;
+	background: #ffffff !important;
+	box-shadow: none !important;
+}
+
+[data-fieldname="selected_doctypes"] .table-multiselect:focus-within {
+	border-color: var(--permission-manager-accent) !important;
+	box-shadow: 0 0 0 4px rgb(255 101 0 / 11%) !important;
+}
+
+[data-fieldname="selected_doctypes"] .link-field,
+[data-fieldname="selected_doctypes"] .awesomplete {
+	min-width: 230px;
+	flex: 1 1 280px;
+	width: auto !important;
+}
+
+[data-fieldname="selected_doctypes"] .table-multiselect input.input-with-feedback {
+	width: 100% !important;
+	min-height: 34px;
+	height: 34px;
+	padding: 7px 9px !important;
+	border: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+[data-fieldname="selected_doctypes"] .help-box { margin-top: 7px; }
